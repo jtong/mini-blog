@@ -1,0 +1,28 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title, "标题" %>
+    <%= f.text_field :title, :class => "form-control", :placeholder => "请输入标题，长度不超过100字符" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :abstract, "概述" %>
+    <%= f.text_field :abstract, :class => "form-control", :placeholder => "请输入概述，长度不超过140字符"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, "内容" %>
+    <%= f.text_area :content, :class => "form-control", :placeholder => "请输入内容" %>
+  </div>
+  <button type="submit" class="btn btn-primary"><%=submit_label%></button>
+  <%=yield :cancel %>
+<% end %>

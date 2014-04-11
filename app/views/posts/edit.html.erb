@@ -1,0 +1,9 @@
+<h1>修改日志</h1>
+
+
+<% content_for :cancel do %>
+	| <%= link_to '展示日志', @post %> 
+	| <%= link_to '回到列表', posts_path %>
+<% end %>
+
+<%= render partial:'form', locals: { submit_label: "修改日志"}%>

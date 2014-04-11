@@ -1,0 +1,7 @@
+	<h1>添加日志</h1>
+
+	<% content_for :cancel do %>
+		<%= link_to '回到列表', posts_path %>
+	<% end %>
+
+	<%= render partial:'form', locals: { submit_label: "创建日志"} %>
